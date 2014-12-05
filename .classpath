@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="librairies/gnujaxp.jar"/>
+	<classpathentry kind="lib" path="librairies/iText-2.1.5.jar"/>
+	<classpathentry kind="lib" path="librairies/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="librairies/jfreechart-1.0.14-experimental.jar"/>
+	<classpathentry kind="lib" path="librairies/jfreechart-1.0.14-swt.jar"/>
+	<classpathentry kind="lib" path="librairies/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="librairies/junit.jar"/>
+	<classpathentry kind="lib" path="librairies/RXTXcomm.jar"/>
+	<classpathentry kind="lib" path="librairies/servlet.jar"/>
+	<classpathentry kind="lib" path="librairies/swtgraphics2d.jar"/>
+	<classpathentry kind="lib" path="libs/gnujaxp.jar"/>
+	<classpathentry kind="lib" path="libs/iText-2.1.5.jar"/>
+	<classpathentry kind="lib" path="libs/javax.usb.jar"/>
+	<classpathentry kind="lib" path="libs/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="libs/jfreechart-1.0.14-experimental.jar"/>
+	<classpathentry kind="lib" path="libs/jfreechart-1.0.14-swt.jar"/>
+	<classpathentry kind="lib" path="libs/jfreechart-1.0.14.jar"/>
+	<classpathentry kind="lib" path="libs/junit.jar"/>
+	<classpathentry kind="lib" path="libs/RXTXcomm.jar"/>
+	<classpathentry kind="lib" path="libs/servlet.jar"/>
+	<classpathentry kind="lib" path="libs/swtgraphics2d.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

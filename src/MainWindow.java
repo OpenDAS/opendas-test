@@ -9,7 +9,7 @@ import java.awt.GridLayout;
 import java.net.Socket;
 import java.util.Properties;
 
-public class FenetrePrincipal{	
+public class MainWindow{	
 	JFrame frame =new JFrame();
 	public static final long serialVersionUID = 10L;	
 	Properties properties=new Properties();
@@ -49,7 +49,7 @@ public class FenetrePrincipal{
 	/** Instancie la fenêtre principal du programme.
 	 *  Elle permet l'affichage des boutons et des champs de texte.
 	 */
-	public FenetrePrincipal(){	
+	public MainWindow(){	
 	//Creation de la JFrame principale.	
 		frame.setLocation(970,300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -188,7 +188,7 @@ public class FenetrePrincipal{
 						//Créer une connexion au serveur à l'aide de l'ip et du port sélectionné.
 						Socket client = new Socket(IP,Integer.parseInt(Port));						
 						//Récupération des variables et envoi à travers la méthode EnvoiInformations.
-						new CommunicationNet(ValSc,Du,Cyc,client);						
+						new NETCommunication(ValSc,Du,Cyc,client);						
 						Information.setText("Les valeurs ont été Envoyées");
 					}	
 					if(ValCom =="Port USB"){
@@ -197,7 +197,7 @@ public class FenetrePrincipal{
 						PortCom=(SerialPort)portIdentifier.open("Main",100);						
 						PortCom.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 						PortCom.enableReceiveTimeout(1);
-						new CommunicationCOM(ValSc,Du,Cyc,PortCom,PortTitle);
+						new COMCommunication(ValSc,Du,Cyc,PortCom,PortTitle);
 						Information.setText("Les valeurs ont été Envoyées");
 					}
 					if(ValCom =="Port Série"){	
@@ -207,7 +207,7 @@ public class FenetrePrincipal{
 						PortCom.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);	
 						PortCom.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 						PortCom.enableReceiveTimeout(1);
-						new CommunicationCOM(ValSc,Du,Cyc,PortCom,PortTitle);
+						new COMCommunication(ValSc,Du,Cyc,PortCom,PortTitle);
 						Information.setText("Les valeurs ont été Envoyées");
 						
 					}

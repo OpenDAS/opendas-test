@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import javax.swing.JFrame;
 
-public class ServeurNET extends JFrame{
+public class NETServer extends JFrame{
 	
 	static final long serialVersionUID = 1L;
 	static ServerSocket server1;
@@ -17,7 +17,7 @@ public class ServeurNET extends JFrame{
 	/**Bellier Aurélien
 	 * Stage ASPerience 2013
 	 */	
-	public ServeurNET(){
+	public NETServer(){
 		try{
 			properties.load(new FileInputStream("config.properties"));
 			String NetProp=properties.getProperty("NetServeurKey"); 

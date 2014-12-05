@@ -10,7 +10,7 @@ import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.UnsupportedCommOperationException;
 
-public class ServeurUsb{
+public class USBServer{
 	static SerialPort connexion;		
 	private static Properties properties=new Properties();
 	

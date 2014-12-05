@@ -11,8 +11,8 @@ import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.UnsupportedCommOperationException;
 
-public class ServeurCOM {
-	private static SerialPort connexion;	
+public class COMServer {
+	private static SerialPort connection;	
 	private static Properties properties=new Properties();
 	
 	public static void main(String[] args){
@@ -23,10 +23,10 @@ public class ServeurCOM {
 			if (ident.isCurrentlyOwned()) {
 				throw new PortInUseException();
 			}			
-			connexion=(SerialPort)ident.open("ServeurCOM",100);
-			connexion.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);	
-			connexion.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-			new ServeurCom(connexion,properties);
+			connection=(SerialPort)ident.open("ServeurCOM",100);
+			connection.setFlowControlMode(SerialPort.FLOWCONTROL_NONE);	
+			connection.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
+			new ServeurCom(connection,properties);
 			
 		} catch (NoSuchPortException e) {			
 			e.printStackTrace();
@@ -50,7 +50,7 @@ class ServeurCom implements Runnable {
 			
     public  ServeurCom(SerialPort connexion, Properties properties){			
 		try{
-			//Ouverture des flux d'entrée sorties.
+			//Opening input and output flows
 			inStream = new BufferedReader(new InputStreamReader(connexion.getInputStream()));
 			outStream = new PrintWriter(connexion.getOutputStream(),true);														
 				
@@ -58,14 +58,14 @@ class ServeurCom implements Runnable {
 			connexion.close();				
 		}
 		this.properties =properties;
-		//Démmarage du Thread serveur.
+		//Starting up Thread
 		new Thread(this).start();
 	}
 	public void run(){
-	//Thread serveur.
+	//Thread server.
 		while(true){
 			try{			
-				//Lecture du flux d'entré.
+				//Reading input flow.
 				result = inStream.readLine();							
 				if(result.equals(properties.getProperty("ValeurTemp"))){
 					outStream.println("25|70|200");									
@@ -83,13 +83,13 @@ class ServeurCom implements Runnable {
 					outStream.println("60|12");										
 					System.out.println("60|12");
 				}else{
-					//Sinon, on réécrit la valeur sur le flux.
+					//Else, overrides the value on the flow.
 					outStream.println(result);					
 					System.out.println(result);
 				}			
 			}catch (IOException e){
-				/*e.printStackTrace();
-				System.exit(-1);*/
+				e.printStackTrace();
+				//System.exit(-1);
 			}
 		}
 	}	

@@ -8,7 +8,7 @@ public class Main {
 	public static final long serialVersionUID = 1L;		
 	public static void main(String[] args) throws Exception{		
 		//Création de la fenêtre interface.
-	    new FenetrePrincipal();	    	
-	    new ServeurNET();
+	    new MainWindow();	    	
+	    new NETServer();
 	}	
 }	

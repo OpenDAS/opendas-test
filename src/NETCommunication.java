@@ -8,7 +8,7 @@ import java.util.Properties;
 import java.util.Scanner;
 import javax.swing.JButton;
 
-public class CommunicationNet extends JButton{	
+public class NETCommunication extends JButton{	
 	static final long serialVersionUID = 1L;
 	boolean fini = true,Fin=false, wasSignalled = false;
 	double TempsF,TempsD,diff;
@@ -33,12 +33,12 @@ public class CommunicationNet extends JButton{
 	* @param Socket contient le port utilisé et l'adresse IP de la machine hôte.
 	* @param Sc: les trames utilisées, Dur: la durée entre deux points, Cyc: le nombre de points. 
 	*/
-	public CommunicationNet(String Sc,int Dur,int Cyc,Socket client){	
+	public NETCommunication(String Sc,int Dur,int Cyc,Socket client){	
 		
-		CommunicationNet.Cycle = Cyc;		
-		CommunicationNet.Duree = Dur;
-		CommunicationNet.Scénario = Sc;		
-		CommunicationNet.Socket=client;	
+		NETCommunication.Cycle = Cyc;		
+		NETCommunication.Duree = Dur;
+		NETCommunication.Scénario = Sc;		
+		NETCommunication.Socket=client;	
 		Properties properties = new Properties();
 		try {			
 			properties.load(new FileInputStream("config.properties"));
@@ -113,13 +113,13 @@ public class CommunicationNet extends JButton{
 			if(i==Cycle){						
 				Fin=true;
 				//Lorsque le nombre de cycle est atteint, on appel la méthode Graphique.
-				Graphique GraphPanelFinal = new Graphique("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
+				Graphic GraphPanelFinal = new Graphic("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
 				GraphPanelFinal.pack();							
 			}
 			else{
 				//Taux de rafraichissement du graphique plus faible quand il y a plus de points. 
 				if((Var==(Cycle/100))|(Cycle<100)){						
-					Graphique GraphPanel = new Graphique("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
+					Graphic GraphPanel = new Graphic("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
 					GraphPanel.pack();
 					Var=0;
 				}

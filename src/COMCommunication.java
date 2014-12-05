@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import gnu.io.SerialPort;
 
-public class CommunicationCOM  {		
+public class COMCommunication  {		
 	static Thread ComRet,ComEnv;		
 	static SerialPort Port;
 	BufferedReader inStream;	
@@ -28,11 +28,11 @@ public class CommunicationCOM  {
     List<Event> eventList = new LinkedList<Event>();   
     DecimalFormat DF =new DecimalFormat("0.00");
     
-	public CommunicationCOM(String Sc,int Du,int Cyc,SerialPort Port,String portTitle) {
-		CommunicationCOM.Scénario = Sc;
-		CommunicationCOM.Cycle = Cyc;
-		CommunicationCOM.Duree = Du;
-		CommunicationCOM.Port=Port;
+	public COMCommunication(String Sc,int Du,int Cyc,SerialPort Port,String portTitle) {
+		COMCommunication.Scénario = Sc;
+		COMCommunication.Cycle = Cyc;
+		COMCommunication.Duree = Du;
+		COMCommunication.Port=Port;
 		Properties properties=new Properties();
 		try{
 			properties.load(new FileInputStream("config.properties"));
@@ -100,13 +100,13 @@ public void TempsCOMEmission(double Temps){
 			if(i==Cycle){						
 				Fin=true;
 				//Lorsque le nombre de cycle est atteint, on appel la méthode Graphique.
-				Graphique GraphPanelFinal = new Graphique("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
+				Graphic GraphPanelFinal = new Graphic("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
 				GraphPanelFinal.pack();							
 			}
 			else{
 				//Taux de rafraichissement du graphique plus faible quand il y a plus de points. 
 				if((Var==(Cycle/1000))|(Cycle<1000)){						
-					Graphique GraphPanel = new Graphique("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
+					Graphic GraphPanel = new Graphic("Graphique", "Test OpenDAS",tabX,tabY,i,Fin);        
 					GraphPanel.pack();
 					Var=0;					
 				}

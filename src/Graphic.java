@@ -12,7 +12,7 @@ import org.jfree.data.general.DatasetUtilities;
 import org.jfree.data.xy.*;
 import org.jfree.data.statistics.Regression;
 
-public class Graphique extends JFrame{	
+public class Graphic extends JFrame{	
 	static JFrame F = new JFrame();private 
 	static final long serialVersionUID = 1L;	
 	static JPanel PanS = new JPanel();
@@ -33,7 +33,7 @@ public class Graphique extends JFrame{
 	 * @param TabY tableau contenant le temps de réponse du serveur pour chaques trames envoyées.
 	 * @param Points le nombre de points dans chaques tableaux. 
 	 */
-	public Graphique (String applicationTitle, String chartTitle,long[]charX,double[]charY, int Points,boolean Fin) {		 
+	public Graphic (String applicationTitle, String chartTitle,long[]charX,double[]charY, int Points,boolean Fin) {		 
 		
 		//Création de la collection, en passant les tableaux de valeurs en paramètre.
         XYSeriesCollection dataset = createDataset(charX,charY,Points);        	
